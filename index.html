@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet/less" href="css/index.less">
+    <script src="js/less-2.5.3.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script>
+        ~function () {
+            let HTML = document.documentElement;
+            let computedREM = function () {
+                let winSize = HTML.clientWidth,
+                    desSize = 640;
+                HTML.style.fontSize = winSize > 640 ? '100px' : winSize / desSize * 100 + 'px';
+            };
+            computedREM();
+            window.addEventListener('resize', computedREM);
+        }();
+    </script>
+</head>
+<body>
+    <main class="mainBox">
+        <img class="bgImg"  >
+        <img class="markImg">
+        <audio src="img/myDream.m4a"></audio>
+
+        <header>
+            <img src="img/myDream.jpg" >
+            <h1>我的梦-My Dream</h1>
+            <h2>张靓颖</h2>
+            <a href="javascript:;"></a>
+        </header>
+        <section>
+            <div class="wrapper">
+                <!--<p>我的梦(华为手机主题曲)-张靓颖</p>-->
+            </div>
+        </section>
+        <footer>
+            <div class="progressBox">
+                <div class="progress">
+                    <div class="currentProgress"></div>
+                    <a href="javascript:;" class="mark"></a>
+                </div>
+                <span class="currentTime">00:00</span>
+                <span class="totalTime">03:00</span>
+            </div>
+            <div class="downloadBtn">
+                下载这首音乐
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
