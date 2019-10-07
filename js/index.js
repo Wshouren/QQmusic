@@ -20,16 +20,6 @@ let musicRender = (function () {
         ricHeight = null,
         point = null;
 
-    let computedSection = function () {
-        let winH = document.documentElement.clientHeight,
-            headerH = $header[0].offsetHeight,
-            footerH = $footer[0].offsetHeight;
-        sH = winH - headerH - footerH - parseFloat($section.css('margin')) * 2;
-        $section.css({
-            height: sH
-        });
-    };
-
     let queryData = function () {
         return new Promise(resolve => {
             $.ajax({
@@ -158,7 +148,6 @@ let musicRender = (function () {
 
     return {
         init: function () {
-            computedSection();
             let promise = queryData();
             promise.then(bindHtml)
                 .then(music.addEventListener('canplay', () => {

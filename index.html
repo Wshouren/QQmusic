@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="css/index.min.css">
-    <script src="js/less-2.5.3.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
     <script>
         ~function () {
             let HTML = document.documentElement;
@@ -14,6 +14,7 @@
                     desSize = 640;
                 HTML.style.fontSize = winSize > 640 ? '100px' : winSize / desSize * 100 + 'px';
             };
+
             computedREM();
             window.addEventListener('resize', computedREM);
         }();
@@ -51,7 +52,26 @@
         </footer>
     </main>
 
+
     <script src="js/zepto.min.js"></script>
     <script src="js/index.js"></script>
+    <script>
+        ~function () {
+            let $header = $('header'),
+                $footer = $('footer'),
+                $section = $('section');
+            let computedSection = function () {
+                let winH = document.documentElement.clientHeight,
+                    headerH = $header[0].offsetHeight,
+                    footerH = $footer[0].offsetHeight,
+                    sH = winH - headerH - footerH - parseFloat($section.css('margin')) * 2;
+                $section.css({
+                    height: sH
+                });
+            };
+            computedSection();
+            window.addEventListener('resize', computedSection);
+        }();
+    </script>
 </body>
 </html>
